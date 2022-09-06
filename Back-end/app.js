@@ -1,8 +1,11 @@
-const express = require('express');
+const express = require("express");
+const connectDB = require("./config/db");
 
 const app = express();
 
-app.get('/', (req, res) => res.send('Test'));
+connectDB();
+
+app.get("/", (req, res) => res.send("Test"));
 
 const port = process.env.PORT || 8082;
 
