@@ -5,8 +5,8 @@ class Navbar extends Component
 {
     render()
     {   
-        // New page? Add to this list.
-        const links = ["Home", "Search"];
+        // New page? Add to this list. Add leading slash (thanks nathan)
+        const links = ["/Home", "/Search"];
         //console.log("tosser");
 
         return(
@@ -14,7 +14,7 @@ class Navbar extends Component
                 {
                     links.map((link, i) =>
                     {
-                        return(<NavLink to={link}>{link}</NavLink>);
+                        return(<NavLink exact to={link}>{link.substring(1)}</NavLink>); // substring to remove leading slash
                     })
                 }
             </div>
