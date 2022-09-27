@@ -5,18 +5,17 @@ import
 } from "react-router-dom";
 
 import './App.css';
+import Navbar from './components/Navbar';
 import Search from "./pages/Search";
 
 class App extends Component
 {
-
-
     render()
     {
         return(
             <div>
                 <h1>Text</h1>
-                <NavLink to="/Search">fuckinwork</NavLink>
+                <Navbar/>
             </div>
 
         );
