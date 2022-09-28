@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import Home from './pages/Home';
 import Search from './pages/Search';
+import Submit from './pages/Submit';
 
 import { RouterProvider } from 'react-router';
 import
@@ -25,6 +26,10 @@ const router = createBrowserRouter
         {
             path: "/Search",
             element: <Search/>,
+        },
+        {
+            path: "/Submit",
+            element:  <Submit/>
         }
     ]
 );

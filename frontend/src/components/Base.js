@@ -22,7 +22,7 @@ class Base extends Component
 
                 <Navbar/>
             </div>
-        )
+        );
     }
     
     render()

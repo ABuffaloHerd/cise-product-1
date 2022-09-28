@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 class App extends Component
 {
 
+    // TODO: REMOVE
     getComponent()
     {
         var comp;
