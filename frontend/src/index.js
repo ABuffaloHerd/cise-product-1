@@ -13,6 +13,7 @@ import
 {
     createBrowserRouter
 } from "react-router-dom";
+import ShowAll from './pages/ShowAll';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter
         {
             path: "/Submit",
             element:  <Submit/>
+        },
+        {
+            path:"/ShowAll",
+            element: <ShowAll/>
         }
     ]
 );
