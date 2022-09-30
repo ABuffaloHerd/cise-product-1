@@ -2,4 +2,10 @@
     font-size: default;
     font-family: "Comic Sans MS";
     font-size: 200px;
+
+    padding-left: 5%;
+}
+
+.navbar {
+    background-color: red;
 }

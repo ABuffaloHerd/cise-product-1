@@ -1,7 +1,7 @@
 import { Component, React } from 'react';
 import { NavLink } from "react-router-dom";
 
-import "../pages/styles/Nav.css";
+import "./styles/Nav.css";
 
 class Navbar extends Component
 {
@@ -12,7 +12,7 @@ class Navbar extends Component
         //console.log("tosser");
 
         return(
-            <div id="navbar">
+            <div class="navbar">
                 {
                     links.map((link, i) =>
                     {

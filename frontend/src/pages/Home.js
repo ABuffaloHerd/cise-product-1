@@ -4,11 +4,6 @@ import Base from "../components/Base";
 
 class Home extends Base
 {
-    constructor()
-    {
-        super();
-    }
-
     render()
     {
         return(
