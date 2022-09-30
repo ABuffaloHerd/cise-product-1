@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
-
+import "../pages/styles/Default.css";
 
 // !! ABSTRACT !!
 class Base extends Component

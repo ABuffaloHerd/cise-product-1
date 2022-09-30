@@ -1,0 +1,9 @@
+h1 {
+    font-family: "Bradley Hand ITC";
+    font-size: 75px;
+}
+
+body {
+    background-image: url("../images/tyler-compress.jpg");
+    background-size: 50%;
+}

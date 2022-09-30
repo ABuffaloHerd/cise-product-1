@@ -8,8 +8,10 @@ class Home extends Base
     {
         return(
             <div>
-                <h2>Home</h2>
+                <h1>Home</h1>
                 {super.getBaseComponents()}
+
+                <img src=""></img>
             </div>
         );  
     }
