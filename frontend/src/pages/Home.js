@@ -10,8 +10,6 @@ class Home extends Base
             <div>
                 <h1>Home</h1>
                 {super.getBaseComponents()}
-
-                <img src=""></img>
             </div>
         );  
     }
