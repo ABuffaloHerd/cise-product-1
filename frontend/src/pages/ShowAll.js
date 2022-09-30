@@ -5,6 +5,7 @@ import Base from "../components/Base";
 // requires props to function. 
 /**
  * I want an object with these attributes and they have to be named like this understand???
+ * Please see index.js for an example
  * {
  *      key
  *      title
