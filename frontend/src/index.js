@@ -17,6 +17,33 @@ import ShowAll from './pages/ShowAll';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+const samplearticles =
+[
+    {
+        key: 0,
+        title: "Defenestration for the classroom teacher",
+        description: "asdf",
+        rating: 10,
+        tags: ["high school", 'ms lal', "JACKSON I'M GOING TO THROW YOU OUT THE WINDOW"],
+        status: "Accepted"
+    },
+    {
+        key: 1,
+        title: "Domestic terrorism for dummies",
+        description: "asdf",
+        rating: 10,
+        tags: ["high school", 'ms lal', "I FUCKING HATE THIS SHIT LANGUAGE"],
+        status: "Accepted"
+    },
+    {
+        key: 2,
+        title: "the code is reachable you fucking liar.",
+        description: "asdf",
+        rating: 10,
+        tags: ["high school", 'ms lal', "I FUCKING HATE THIS SHIT LANGUAGE"],
+        status: "Accepted"
+    }
+]
 const router = createBrowserRouter
 (
     [
@@ -34,7 +61,7 @@ const router = createBrowserRouter
         },
         {
             path:"/ShowAll",
-            element: <ShowAll/>
+            element: <ShowAll articles = {samplearticles}/>
         }
     ]
 );
