@@ -7,21 +7,36 @@ class Navbar extends Component
 {
     render()
     {   
-        // New page? Add to this list. Add leading slash (thanks nathan)
-        const links = ["/Home", "/Search", "/Submit"];
-        //console.log("tosser");
+        // New page? Add to this json. Add leading slash (thanks nathan)
+        // TODO: replace with json so that custom names can be shown
+        // const links = ["/Home", "/Search", "/Submit", "/ShowAll"];
+
+        const links =
+        [
+            {
+                to: "/",
+                label: "Home"
+            },
+            {
+                to: "/Search",
+                label: "search"
+            },
+            {
+                to: "/Submit",
+                label: "Submit an article"
+            },
+            {
+                to: "/ShowAll",
+                label: "Show all articles"
+            }
+        ]
 
         return(
             <div class="navbar">
                 {
                     links.map((link, i) =>
                     {
-                        if(i === 0)
-                        {
-                            return(<NavLink exact to="/">Home</NavLink>)
-                        }
-                        else
-                            return(<NavLink exact to={link}>{link.substring(1)}</NavLink>); // substring to remove leading slash
+                        return(<NavLink exact to={link.to}>{link.label}</NavLink>);
                     })
                 }
             </div>

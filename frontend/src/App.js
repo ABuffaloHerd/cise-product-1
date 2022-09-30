@@ -1,8 +1,4 @@
 import React, {Component} from 'react';
-import
-{
-    NavLink
-} from "react-router-dom";
 
 import './App.css';
 import Navbar from './components/Navbar';
@@ -12,7 +8,7 @@ import Home from "./pages/Home";
 class App extends Component
 {
 
-    // TODO: REMOVE
+    // TODO: REMOVE OR REEVALUATE
     getComponent()
     {
         var comp;

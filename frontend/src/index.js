@@ -13,9 +13,11 @@ import
 {
     createBrowserRouter
 } from "react-router-dom";
+import ShowAll from './pages/ShowAll';
+
+import samplearticles from './sampledata/SampleData';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 const router = createBrowserRouter
 (
     [
@@ -30,6 +32,10 @@ const router = createBrowserRouter
         {
             path: "/Submit",
             element:  <Submit/>
+        },
+        {
+            path:"/ShowAll",
+            element: <ShowAll articles = {samplearticles}/>
         }
     ]
 );
