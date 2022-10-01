@@ -7,9 +7,8 @@ class Navbar extends Component
 {
     render()
     {   
-        // New page? Add to this json. Add leading slash (thanks nathan)
+        // New page? Add to this json.
         // TODO: replace with json so that custom names can be shown
-        // const links = ["/Home", "/Search", "/Submit", "/ShowAll"];
 
         const links =
         [
