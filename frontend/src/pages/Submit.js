@@ -1,6 +1,7 @@
 import React from "react";
 
 import Base from "../components/Base";
+import "./styles/Form.css";
 
 class Submit extends Base
 {
@@ -24,6 +25,16 @@ class Submit extends Base
         return tags;
     }
 
+    lobster()
+    {
+        var img = require("./images/lob.png"); // need require so webpack accesses resource
+        var lobster = document.getElementById("lobster");
+        var i = document.createElement("img");
+        i.src = img;
+
+        lobster.appendChild(i);
+    }
+
     onSubmit(e)
     {
         e.preventDefault();
@@ -45,12 +56,14 @@ class Submit extends Base
             return;
         }
 
+        this.lobster();
+
         // tags in a nice array for backend to work with~
         var tags = this.splitTags(this.tags.current.value);
-        console.log(tags)
+        // console.log(tags)
         
         // CODE TO BACKEND GOES HERE I HOPE SOMEONE ELSE IS MONITORING.
-        console.log("submitted");
+        // console.log("submitted");
     }
 
     render()
@@ -60,22 +73,25 @@ class Submit extends Base
                 <h2>Submit an article</h2>
                 {super.getBaseComponents()}
 
-                <form onSubmit={this.onSubmit}>
-                    <label>
-                        Title:
-                        <input type="text" ref={this.title}/>
-                    </label>
-                    <label>
-                        Description:
-                        <input type="text" ref={this.description}/>
-                    </label>
-                    <label>
-                        Tags:
-                        <textarea ref={this.tags}/>
-                    </label>
+                <div class="formDiv">
+                    <form class="textForm" onSubmit={this.onSubmit}>
+                        <label>
+                            Title:
+                            <input type="text" ref={this.title} placeholder="Sample text"/>
+                        </label>
+                        <label>
+                            Description:
+                            <input type="text" ref={this.description} placeholder="Sample descriptive text"/>
+                        </label>
+                        <label>
+                            Tags: (comma separated)
+                            <textarea ref={this.tags} rows="3" cols="50" placeholder="asdfmovie1,asdfmovie2"/>
+                        </label>
 
-                    <input type="submit" label="SUBMIT"/>
-                </form>
+                        <input type="submit" label="SUBMIT"/>
+                    </form>
+                </div>
+                <div id="lobster" class="lob"></div>
             </div>
         );  
     }
