@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Base from "../components/Base";
+import "./styles/Table.css"
 
 // requires props to function. 
 /**
@@ -25,12 +26,18 @@ class ShowAll extends Base
             <div>
                 <h2>View all articles</h2>
                 {super.getBaseComponents()}
+                <table class="funnytable">
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Rating</th>
+                    <th>Status</th>
                 {
                     this.props.articles.map((a, _i) =>
                         {
                             return(<Article obj={a}/>)
                         })
                 }
+                </table>
             </div>
         );  
     }
@@ -43,12 +50,12 @@ class Article extends Component
         console.log("fuckinwork");
 
         return(
-            <div>
-                <h1>{this.props.obj.title}</h1>
-                <h2>{this.props.obj.status}</h2>
-                <h3>{this.props.obj.rating} / 10</h3>
-                <p>{this.props.obj.description}</p>
-            </div>
+            <tr>
+                <td>{this.props.obj.title}</td>
+                <td>{this.props.obj.description}</td>
+                <td>{this.props.obj.rating} / 10</td>
+                <td>{this.props.obj.status}</td>
+            </tr>
         )
     }
 }
