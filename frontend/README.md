@@ -1,4 +1,4 @@
-# LISTEN UP FUCKERS
+# LISTEN UP
 
 ## Adding a new page
 

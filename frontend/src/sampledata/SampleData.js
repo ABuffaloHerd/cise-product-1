@@ -13,15 +13,15 @@ const samplearticles =
         title: "Domestic terrorism for dummies",
         description: "asdf",
         rating: 10,
-        tags: ["high school", 'ms lal', "I FUCKING HATE THIS SHIT LANGUAGE"],
+        tags: ["high school", 'ms lal', "I ING HATE THIS SHIT LANGUAGE"],
         status: "Accepted"
     },
     {
         key: 2,
-        title: "the code is reachable you fucking liar.",
+        title: "the code is reachable you liar.",
         description: "asdf",
         rating: 10,
-        tags: ["high school", 'ms lal', "I FUCKING HATE THIS SHIT LANGUAGE"],
+        tags: ["high school", 'ms lal', "I"],
         status: "Accepted"
     }
 ]
