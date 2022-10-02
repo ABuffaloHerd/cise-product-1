@@ -45,9 +45,8 @@ class Submit extends Base
 
         // Ensure fields are not empty
         const reqBibliographicDetails = [this.title, this.authors, this.source, this.pubyear, this.pages];
-        
-        for (let field in reqBibliographicDetails) {
-            if (!field.current.value) {
+        for (let i = 0; i < reqBibliographicDetails.length; i++) {
+            if (!reqBibliographicDetails[i].current.value) {
                 alert("Please fill in all required fields.");
                 return;
             }
