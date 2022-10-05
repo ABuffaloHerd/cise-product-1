@@ -94,5 +94,5 @@ class Article extends Component {
             </tr>
         )
     }
-
+}
 export default ShowAll;
