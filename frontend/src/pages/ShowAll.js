@@ -1,8 +1,22 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component, useEffect } from "react";
 import axios from "axios";
 import Base from "../components/Base";
-import "./styles/Table.css"
+import "./styles/Table.css";
+
+const URL = "http://localhost:5000/articles";
+
+const fetchHandler = async () => {
+  return await axios.get(URL).then((res) => res.data);
+};
+
+const Articles = () => {
+  const [articles, setArticles] = React.useState([]);
+  useEffect(() => {
+    fetchHandler().then((data) => setArticles(data));
+  });
+  console.log(articles);
+  
+};
 
 // requires props to function.
 /**
@@ -19,29 +33,23 @@ import "./styles/Table.css"
  */
 
 class ShowAll extends Base {
-    render()
-    {
-        console.log(this.props.articles);
-
-        return(
-            <div>
-                <h2>View all articles</h2>
-                {super.getBaseComponents()}
-                <table class="funnytable">
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Rating</th>
-                    <th>Status</th>
-                {
-                    this.props.articles.map((a, _i) =>
-                        {
-                            return(<Article obj={a}/>)
-                        })
-                }
-                </table>
-            </div>
-        );  
-    }
+  render() {
+    return (
+      <div>
+        <h2>View all articles</h2>
+        {super.getBaseComponents()}
+        <table class="funnytable">
+          <th>Title</th>
+          <th>Description</th>
+          <th>Rating</th>
+          <th>Status</th>
+          {this.props.articles.map((a, _i) => {
+            return <Article obj={a} />;
+          })}
+        </table>
+      </div>
+    );
+  }
 }
 
 class Article extends Component {
@@ -60,7 +68,7 @@ class Article extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:8082/articles/")
+      .get("http://localhost:5000/articles/")
       .then((response) => {
         this.setState({ articles: response.data });
       })
@@ -81,18 +89,17 @@ class Article extends Component {
     });
   }
 
-    render()
-    {
-        console.log("fuckinwork");
+  render() {
+    console.log("fuckinwork");
 
-        return(
-            <tr>
-                <td>{this.props.obj.title}</td>
-                <td>{this.props.obj.description}</td>
-                <td>{this.props.obj.rating} / 10</td>
-                <td>{this.props.obj.status}</td>
-            </tr>
-        )
-    }
+    return (
+      <tr>
+        <td>{this.props.obj.title}</td>
+        <td>{this.props.obj.description}</td>
+        <td>{this.props.obj.rating} / 10</td>
+        <td>{this.props.obj.status}</td>
+      </tr>
+    );
+  }
 }
 export default ShowAll;
