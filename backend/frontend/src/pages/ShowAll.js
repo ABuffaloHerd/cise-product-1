@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
+import axios from "axios";
 import Base from "../components/Base";
 import "./styles/Table.css"
 
-// requires props to function. 
+// requires props to function.
 /**
  * I want an object with these attributes and they have to be named like this understand???
  * Please see index.js for an example
@@ -16,8 +17,8 @@ import "./styles/Table.css"
  *      rating
  * }
  */
-class ShowAll extends Base
-{
+
+class ShowAll extends Base {
     render()
     {
         console.log(this.props.articles);
@@ -43,8 +44,43 @@ class ShowAll extends Base
     }
 }
 
-class Article extends Component
-{
+class Article extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      obj: props.obj,
+      key: props.obj.key,
+      title: props.obj.title,
+      description: props.obj.description,
+      tags: props.obj.tags,
+      status: props.obj.status,
+      rating: props.obj.rating,
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:8082/articles/")
+      .then((response) => {
+        this.setState({ articles: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  articleList() {
+    return this.state.articles.map((currentarticle) => {
+      return (
+        <Article
+          article={currentarticle}
+          deleteArticle={this.deleteArticle}
+          key={currentarticle._id}
+        />
+      );
+    });
+  }
+
     render()
     {
         console.log("fuckinwork");
@@ -58,6 +94,5 @@ class Article extends Component
             </tr>
         )
     }
-}
 
 export default ShowAll;
