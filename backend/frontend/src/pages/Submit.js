@@ -39,6 +39,10 @@ class Submit extends Base
         lobster.appendChild(i);
     }
 
+    onChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+      };
+
     onSubmit(e)
     {
         e.preventDefault();
@@ -51,25 +55,36 @@ class Submit extends Base
                 return;
             }
         }
-
-        this.lobster();
         
         // CODE TO BACKEND GOES HERE I HOPE SOMEONE ELSE IS MONITORING.
         // console.log("submitted");
+        // Turn the input from the fields into json
         const data = {
-            title: this.state.title,
-            authors: this.state.authors,
-            source: this.state.source,
-            pubyear: this.state.pubyear,
-            volume: this.state.volume,
-            pages: this.state.pages,
-            doi: this.state.doi
-        }
+            title: this.title.current.value,
+            authors: this.authors.current.value,
+            source: this.source.current.value,
+            pubyear: this.pubyear.current.value,
+            volume: this.volume.current.value,
+            pages: this.pages.current.value,
+            doi: this.doi.current.value
+        };
 
-        console.log(data);
-
+        const result = JSON.stringify(data);
+        // Testing purposes
+        alert(result);
+        
         axios
-            .post('http://localhost:8082/routes/Article-routes', data)
+            .post('http://localhost:8082/routes/Article-routes', result)
+            .then( res => {
+                alert("Successful!");
+//                this.props.history.push('/');
+            })
+            .catch(err => {
+                console.log(err.response);
+                alert('An error occurred! Try submitting the form again.');
+            });
+
+        this.lobster();
     }
 
     render()

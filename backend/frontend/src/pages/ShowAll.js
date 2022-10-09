@@ -28,7 +28,10 @@ class ShowAll extends Base
                 {super.getBaseComponents()}
                 <table class="funnytable">
                     <th>Title</th>
-                    <th>Description</th>
+                    <th>Author</th>
+                    <th>Source</th>
+                    <th>Published Year</th>
+                    <th>DOI</th>
                     <th>Rating</th>
                     <th>Status</th>
                 {
@@ -45,15 +48,22 @@ class ShowAll extends Base
 
 class Article extends Component
 {
+    constructor(props) {
+        super(props);
+        this.state = {
+            articles: []
+        };
+    }
+
     componentDidMount() {
         axios.get('http://localhost:8082/routes/Article-routes')
             .then(response => {
-                this.setState()
+                this.setState({articles: response.data})
             })
             .catch(function (error) {
                 console.log(error);
             })
-        }
+    }
 
     render()
     {
@@ -62,7 +72,10 @@ class Article extends Component
         return(
             <tr>
                 <td>{this.props.obj.title}</td>
-                <td>{this.props.obj.description}</td>
+                <td>{this.props.obj.authors}</td>
+                <td>{this.props.obj.source}</td>
+                <td>{this.props.obj.pubyear}</td>
+                <td>{this.props.obj.doi}</td>
                 <td>{this.props.obj.rating} / 10</td>
                 <td>{this.props.obj.status}</td>
             </tr>
