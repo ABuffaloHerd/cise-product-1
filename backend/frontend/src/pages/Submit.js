@@ -3,6 +3,9 @@ import axios from 'axios';
 import Base from "../components/Base";
 import "./styles/Form.css";
 
+// import express router
+import router from "../../../routes/Article-routes.js";
+
 class Submit extends Base
 {
     constructor()
