@@ -1,5 +1,5 @@
 import React from "react";
-
+import axios from 'axios';
 import Base from "../components/Base";
 import "./styles/Form.css";
 
@@ -56,6 +56,20 @@ class Submit extends Base
         
         // CODE TO BACKEND GOES HERE I HOPE SOMEONE ELSE IS MONITORING.
         // console.log("submitted");
+        const data = {
+            title: this.state.title,
+            authors: this.state.authors,
+            source: this.state.source,
+            pubyear: this.state.pubyear,
+            volume: this.state.volume,
+            pages: this.state.pages,
+            doi: this.state.doi
+        }
+
+        console.log(data);
+
+        axios
+            .post('http://localhost:8082/routes/Article-routes', data)
     }
 
     render()

@@ -13,20 +13,20 @@ const getAllArticles = async (req, res, next) => {
 
 //adds a new article to the database
 const addArticle = async (req, res, next) => {
-  const { title, author, doi, date, pages, url, summary } = req.body;
+  const { title, authors, source, pubyear, volume, pages, doi } = req.body;
   const newArticle = new Article({
     title,
-    author,
-    doi,
-    date,
+    authors,
+    source,
+    pubyear,
+    volume,
     pages,
-    url,
-    summary,
+    doi,
   });
   await newArticle.save();
   res.status(201).json({ newArticle });
 
-  if (!title || !author || !date || !pages || !url || !summary) {
+  if (!title || !authors || !source || !pubyear || !pages || !doi) {
     return res.status(400).json({ msg: "Please enter all fields" });
   }
   if (pages < 0) {
@@ -34,10 +34,10 @@ const addArticle = async (req, res, next) => {
       .status(400)
       .json({ msg: "Please enter a valid number of pages" });
   }
-  if (!url.includes("http://") && !url.includes("https://")) {
+  if (!doi.includes("http://") && !doi.includes("https://")) {
     return res.status(400).json({ msg: "Please enter a valid URL" });
   }
-  if (!date.includes("-")) {
+  if (!pubyear.includes("-")) {
     return res.status(400).json({ msg: "Please enter a valid date" });
   }
   if (!articles) {
@@ -71,15 +71,15 @@ const getArticleByTitle = async (req, res, next) => {
 //updates an article by id
 const updateArticle = async (req, res, next) => {
   const { id } = req.params.id;
-  const { title, author, doi, date, pages, url, summary } = req.body;
+  const { title, authors, source, pubyear, volume, pages, doi } = req.body;
   const article = await Article.findByIdAndUpdate(id, {
     title,
-    author,
-    doi,
-    date,
+    authors,
+    source,
+    pubyear,
+    volume,
     pages,
-    url,
-    summary,
+    doi,
   });
 
   if (!article) {

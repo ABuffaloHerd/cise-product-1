@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from "axios";
 import Base from "../components/Base";
 import "./styles/Table.css"
 
@@ -45,6 +45,16 @@ class ShowAll extends Base
 
 class Article extends Component
 {
+    componentDidMount() {
+        axios.get('http://localhost:8082/routes/Article-routes')
+            .then(response => {
+                this.setState()
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        }
+
     render()
     {
         console.log("fuckinwork");
