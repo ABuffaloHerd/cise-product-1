@@ -78,11 +78,11 @@ class Submit extends Base
         
         axios
             .post('http://localhost:8082/routes/Article-routes', result)
-            .then( res => {
+            .then( (res) => {
                 alert("Successful!");
 //                this.props.history.push('/');
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err.response);
                 alert('An error occurred! Try submitting the form again.');
             });

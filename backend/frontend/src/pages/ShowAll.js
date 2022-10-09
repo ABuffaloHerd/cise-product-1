@@ -3,6 +3,7 @@ import axios from "axios";
 import Base from "../components/Base";
 import "./styles/Table.css"
 
+import router from "../../../routes/Article-routes.js";
 // requires props to function. 
 /**
  * I want an object with these attributes and they have to be named like this understand???
