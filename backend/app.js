@@ -8,12 +8,16 @@ const app = express();
 app.use(express.json());
 app.use("/articles", router);
 
+const port = process.env.PORT || 5000;
+
+app.use(express.static('../frontend/build'));
+
 mongoose
   .connect(
     "mongodb+srv://Uname:PasswordsAreForL0s3rs@cluster0.syr1wnf.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => console.log("MongoDB Connected..."))
   .then(() => {
-    app.listen(5000, () => console.log("Server started on port 5000"));
+    app.listen(port, () => console.log(`Server running on port ${port}`));
   })
   .catch((err) => console.log(err));
