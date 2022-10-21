@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test 1
-        working-directory: ./backend/frontend
+        working-directory: backend/frontend
         run: npm test
 
       - uses: actions/checkout@v2
