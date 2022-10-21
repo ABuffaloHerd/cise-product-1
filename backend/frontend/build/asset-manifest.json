@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ec00f0c2.css",
+    "main.js": "/static/js/main.b33af796.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/tyler-compress.jpg": "/static/media/tyler-compress.06c68d72ffc0888e6b62.jpg",
+    "static/media/lob.png": "/static/media/lob.d33582d7b0ef5e04f2f3.png",
+    "index.html": "/index.html",
+    "main.ec00f0c2.css.map": "/static/css/main.ec00f0c2.css.map",
+    "main.b33af796.js.map": "/static/js/main.b33af796.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec00f0c2.css",
+    "static/js/main.b33af796.js"
+  ]
+}
