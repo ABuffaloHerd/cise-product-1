@@ -68,7 +68,6 @@ class Article extends Component
 
     render()
     {
-        console.log("fuckinwork");
 
         return(
             <tr>
